@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a713af0697945cdb217ab0e946aea36" Name="Diagram1">
+        <EntityTypeShape EntityType="GainCallDBModel.Address" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.City" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.Gender" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.Product" Width="1.5" PointX="10.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.ProductType" Width="1.5" PointX="8.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.State" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.UserInformation" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.UserProfile" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.webpages_Membership" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.webpages_OAuthMembership" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.webpages_Roles" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GainCallDBModel.ZipCode" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="GainCallDBModel.FK_Address_City" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_Address_State" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_Address_ZipCode" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_Product_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_UserInformation_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_ZipCode_City" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_UserInformation_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_Product_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_ZipCode_State" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.FK_UserInformation_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="GainCallDBModel.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
