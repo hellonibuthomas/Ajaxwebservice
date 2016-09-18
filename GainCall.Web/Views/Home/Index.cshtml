@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 @using GainCall.Entity;
-@model List<State>
+@model GainCall.Web.Models.ProductSearchInfo
 
 @section featured {
     <section class="featured">
@@ -26,31 +26,12 @@
 <div class="row">
     <div class="col-md-4">
         <select class="form-control" id="select">
-            @foreach (State state in ViewBag.States)
+            @foreach (City city in Model.Cities)
             {
-                <option value="@state.StateId">@state.Name</option>
+                <option value="@city.CityId">@city.Name</option>
             }
         </select>
     </div>
 </div>
 
-<table class="table table-striped table-hover ">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Code</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (State state in Model)
-        {
-            <tr>
-                <td>@state.StateId</td>
-                <td>@state.Name</td>
-                <td>@state.CreatedBy</td>
-            </tr>
-        }
 
-    </tbody>
-</table>

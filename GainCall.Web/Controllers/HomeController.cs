@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GainCall.Business.Managers;
 using GainCall.Entity;
+using GainCall.Web.Models;
 
 namespace GainCall.Web.Controllers
 {
@@ -21,10 +22,15 @@ namespace GainCall.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            List<State> states = ProductManager.GetStates();
-            ViewBag.States = states;
+            
+            ProductSearchInfo productSearchInfo = new ProductSearchInfo();
 
-            return View(states);
+           // productSearchInfo.States = ProductManager.GetStates();
+            productSearchInfo.Cities = ProductManager.GetCities(1);
+            ProductDetails pd = new ProductDetails();
+      
+
+            return View(productSearchInfo);
         }
 
         public ActionResult About()

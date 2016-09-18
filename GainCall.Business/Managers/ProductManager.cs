@@ -19,5 +19,18 @@ namespace GainCall.Business.Managers
             IStateRepository stateRepository = new StateRepository();
             return stateRepository.GetState(stateId);
         }
+      public  List<City> GetCities(int stateId)
+        {
+
+            ICityRepository cityRepository = new CityRepository();
+          return cityRepository.GetCities(stateId);
+        }
+       // public List<Product> GetProductDetails()
+    //  {
+
+         // IProductRepository ProductRepository = new ProductRepository();
+         // return ProductRepository.GetProductDetails();
+
+      //}
     }
 }
