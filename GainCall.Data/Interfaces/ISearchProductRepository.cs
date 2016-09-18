@@ -7,8 +7,8 @@ using GainCall.Entity;
 
 namespace GainCall.Data.Interfaces
 {
-    public interface IUserInformationRepository
+    interface ISearchProductRepository
     {
-        UserInformation GetUserInformation(int userId);
+        List<Product> GetSearchProducts();
     }
 }

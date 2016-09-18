@@ -1,0 +1,107 @@
+﻿body {
+    
+}
+.headercolor {
+    background-color:#ffffff;
+
+}
+.slidercolor {
+    background-color:aqua;
+}
+.searchcolor
+{
+    background-color:#00B7FF;
+    
+}
+.searchcoloriner
+{
+    
+    padding:0px 0px 50px 0px;
+
+}
+.totalcolor
+{
+    background-color:rgba(17, 146, 211, 0.9);
+    padding:80px 0px 80px 0px;
+}
+.totalcolorcircle
+{
+    margin:0px auto;
+    width:60%;
+    border-radius:50%;
+    height:200px;
+}
+.fottercolor
+{
+    background-color:#232323;
+    padding:30px 0px 30px 0px;
+}
+.mainfottercolor
+{
+    background-color:#000000;
+    padding-top:30px;
+}
+.logoimg 
+{
+    float:left;
+    margin-top:5px;
+}
+.logotext 
+{
+    font-size:36px;
+    color:#000000;
+    font-family:Arial;
+    float:left;
+}
+.colright 
+{
+    float:right;
+    margin:25px 0px 0px 0px;
+    font-size:14px;
+    color:blue;
+    font-family:Arial;
+}
+.btnstyle
+{
+    float:right;
+    margin:20px 0px 0px 50px;
+}
+.labelstyle 
+{  
+    float:left;
+    padding:70px 0px 0px 70px;
+}
+.labeltext
+{  
+    
+    padding:0px 0px 0px 70px;    
+   
+}
+.ulstyle
+{
+    
+    float:left;
+    display:inline-block;
+    list-style:none;
+    line-height:70px;
+}
+.ulstyle li
+{
+    
+    float:left;
+    display:inline-block;
+   
+}
+.fastyle 
+{
+    float:left;
+    color:white;
+    padding-top:10px;
+}
+.btnwidth
+{
+    float:right;
+    width:160px;
+    margin-left:10px;
+    margin-top:4px;
+}

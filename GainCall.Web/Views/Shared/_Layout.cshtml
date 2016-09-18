@@ -8,27 +8,33 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         @Styles.Render("~/Content/bootstrap")
+        <link href="~/Content/gaincall-style.css" rel="stylesheet"/>
+        <link href="~/Content/new-style.css" rel="stylesheet"/>
+        @*<link href="~/Content/StyleSheet.css" rel="stylesheet" />*@
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
+        @Scripts.Render("~/bundles/jquery")
     </head>
     <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+    <header>
+        <div class="content-wrapper">
+            <div class="headercolor">
+                <div class="container">
+                    <div class="col-md-6">
+                        <img src="~/Images/Gaincall.gif" height="100" width="220" alt="gain call logo" class="logoimg" />
+                        <h2 class="logotext"></h2>
+                    </div>
+                    <!--End col md 6 -->
+                    <div class="col-md-6">
+                        <asp:Button ID="btnpost" runat="server" CssClass="btn btn-primary btnstyle" Text="Post Product" OnClick="btnpost_Click"/>
+                        <div class="colright"><a href="#myModal" role="button" data-toggle="modal">Login</a> / <a href="#myModal" role="button" data-toggle="modal">Registration </a>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
+                <!--End container -->
             </div>
-        </header>
+        </div>
+    </header>
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
@@ -37,13 +43,70 @@
         </div>
         <footer>
             <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                <div class="fottercolor">
+                    <div class="container">
+                        <div class="col-md-4">
+                            <h3>About Us</h3>
+                            <p>yjiopp</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>Download App</h3>
+                        </div>
+                        <div class="col-md-4">
+
+                            <ul class="ulstyle">
+                                <li>
+                                    <i class="fa fa-facebook-square fa-2x fastyle"></i>
+                                    <asp:Button ID="Button3" runat="server" Text="Share on Facebook" CssClass="btn btn-primary btnwidth" />
+                                </li>
+                                <li>
+                                    <i class="fa fa-twitter-square fa-2x fastyle"></i>
+                                    <asp:Button ID="Button4" runat="server" Text="Share on Twitter" CssClass="btn btn-primary btnwidth" />
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-google-plus-square fa-2x fastyle"></i>
+                                    <asp:Button ID="Button5" runat="server" Text="Share on Google+" CssClass="btn btn-primary btnwidth" />
+                                </li>
+
+                                <li>
+                                    <i class="fa  fa-youtube fa-2x fastyle"></i>
+                                    <asp:Button ID="Button6" runat="server" Text="Share on YouTube" CssClass="btn btn-primary btnwidth" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                <div class="mainfottercolor">
+                    <div class="container">
+
+                        <span class="text-center f-label-1 div-block">
+                            Copyright © 2016 www.gaincall.com. All rights reserved.            &nbsp;
+                            <a rel="nofollow" class="item1" href="tnc.aspx">Terms of Use</a>
+                            &nbsp;|
+                            &nbsp;
+                            <a rel="nofollow" href="privacy-policy.aspx">Privacy Policy</a>
+                            &nbsp;|
+                            &nbsp;
+                            <a rel="nofollow" href="about-us.aspx">About Us</a>
+                            &nbsp;|
+                            &nbsp;
+                            <a rel="nofollow" href="contact-us.aspx">Contact Us</a>
+                            &nbsp;|
+                            &nbsp;
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
         </footer>
-
-        @Scripts.Render("~/bundles/jquery")
+        
+       
+        <script src="~/Scripts/app/controller/gainCall.js"></script>
         @RenderSection("scripts", required: false)
     </body>
 </html>
+@section Scripts {
+   @Scripts.Render("~/bundles/jqueryval")
+}

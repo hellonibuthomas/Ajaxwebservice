@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GainCall.Data.Interfaces;
 
 namespace GainCall.Data.Repositories
 {
-    public class UserInformationRepository
+    public class UserInformationRepository:IUserInformationRepository
     {
-        public List<ProductType> GetProductType()
+        public UserInformation GetUserInformation(int userId)
         {
-            using(GainCallDBEntities gainCallDBEntities=new GainCallDBEntities() )
+            using (GainCallDBEntities gainCallDbEntities = new GainCallDBEntities())
             {
-
-                return gainCallDBEntities.ProductTypes.ToList();
+                return gainCallDbEntities.UserInformations.FirstOrDefault(user => user.UserId == userId);
             }
         }
     }

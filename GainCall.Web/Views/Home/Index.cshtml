@@ -4,34 +4,299 @@
 @using GainCall.Entity;
 @model GainCall.Web.Models.ProductSearchInfo
 
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
+<!-- Start Carousel -->
+<div class="slidercolor img-responsive">
+    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example" data-slide-to="1"></li>
+            <li data-target="#carousel-example" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="#">
+
+                    <img src="~/Images/lost-wallet.jpg" />
+                </a>
+                <div class="carousel-caption">
+                    <h3>Meow</h3>
+                    <p>Just Kitten Around</p>
+                </div>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="~/Images/found-wallet1.jpg" />
+                </a>
+                <div class="carousel-caption">
+                    <h3>Meow</h3>
+                    <p>Just Kitten Around</p>
+                </div>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="~/Images/found-wallet1.jpg" />
+                </a>
+                <div class="carousel-caption">
+                    <h3>Meow</h3>
+                    <p>Just Kitten Around</p>
+                </div>
+            </div>
         </div>
-    </section>
-}
+
+        <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
+<!-- End Carousel -->
+<div class="searchcolor">
+    <div class="container searchcoloriner">
 
 
-<div class="row">
-    <div class="col-md-4">
-        <select class="form-control" id="select">
-            @foreach (City city in Model.Cities)
-            {
-                <option value="@city.CityId">@city.Name</option>
-            }
-        </select>
+        @using (Html.BeginForm("Index", "home"))
+        {
+            <fieldset>
+                <legend>Search Products</legend>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "StateId", "Name"), "--Select State--", new { @Placeholder = "Select State", @id = "cmbStates", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.StateId)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m => m.CityId, new SelectList(Model.Cities, "CityId", "Name"), "--Select City--", new { @id = "cmbCities", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CityId)
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m => m.ProductTypeId, new SelectList(Model.ProductTypes, "ProductTypeId", "Description"), "--Select Type--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ProductTypeId)
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(m => m.SearchText, new { @class = "form-control", @maxlength = "35" })
+                        @Html.ValidationMessageFor(m => m.SearchText)
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
+<!-- Start total Product feed -->
+
+<div class="container">
+    <div class="panel-body box">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="section-title">Recentely Uploaded Lost Product</h3>
+            </div>
+            <div class="col-md-6">
+                <p class="card-more"><a href="lost-product-details.aspx">View More</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <img src="~/Images/pic001.jpg" />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">You are viewing dummy text in English</a></h3>
+                        <p class="card-description">
+                            He oppose at thrown desire of no. Do ashamed assured on related offence at equally totally. Was dashwood landlord cheerful husbands two. Estate why theirs indeed him polite old settle though she. In as at regard easily narrow roused adieus.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-time"><span>Posted:</span> 21-sep-2016</p>
+                        <ul class="card-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <img src="~/Images/pic002.jpg" />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">You are viewing dummy text in English</a></h3>
+                        <p class="card-description">
+                            He oppose at thrown desire of no. Do ashamed assured on related offence at equally totally. Was dashwood landlord cheerful husbands two. Estate why theirs indeed him polite old settle though she. In as at regard easily narrow roused adieus.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-time"><span>Posted:</span> 21-sep-2016</p>
+                        <ul class="card-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <img src="~/Images/pic001.jpg" />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">You are viewing dummy text in English</a></h3>
+                        <p class="card-description">
+                            He oppose at thrown desire of no. Do ashamed assured on related offence at equally totally. Was dashwood landlord cheerful husbands two. Estate why theirs indeed him polite old settle though she. In as at regard easily narrow roused adieus.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-time"><span>Posted:</span> 21-sep-2016</p>
+                        <ul class="card-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body box">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="section-title">Recentely Uploaded Found Product</h3>
+            </div>
+            <div class="col-md-6">
+                <p class="card-more"><a href="found-product-details.aspx">View More</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <img src="~/Images/pic001.jpg" />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">You are viewing dummy text in English</a></h3>
+                        <p class="card-description">
+                            He oppose at thrown desire of no. Do ashamed assured on related offence at equally totally. Was dashwood landlord cheerful husbands two. Estate why theirs indeed him polite old settle though she. In as at regard easily narrow roused adieus.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-time"><span>Posted:</span> 21-sep-2016</p>
+                        <ul class="card-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <img src="~/Images/pic001.jpg" />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">You are viewing dummy text in English</a></h3>
+                        <p class="card-description">
+                            He oppose at thrown desire of no. Do ashamed assured on related offence at equally totally. Was dashwood landlord cheerful husbands two. Estate why theirs indeed him polite old settle though she. In as at regard easily narrow roused adieus.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-time"><span>Posted:</span> 21-sep-2016</p>
+                        <ul class="card-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+
+                        <img src="~/Images/pic001.jpg" />
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="#">You are viewing dummy text in English</a></h3>
+                        <p class="card-description">
+                            He oppose at thrown desire of no. Do ashamed assured on related offence at equally totally. Was dashwood landlord cheerful husbands two. Estate why theirs indeed him polite old settle though she. In as at regard easily narrow roused adieus.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-time"><span>Posted:</span> 21-sep-2016</p>
+                        <ul class="card-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- End product feed -->
+<!-- Start Total Color -->
+<div class="totalcolor">
+    <div class="container">
+        <div class="col-md-4">
+            <div class="thumbnail totalcolorcircle">
+                <span class="labelstyle">Total Lost Items</span>
+                <span class="labelstyle">200</span>
+            </div>
 
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail totalcolorcircle">
+                <span class="labelstyle">Total Found Items</span>
+                <span class="labelstyle">100</span>
+
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail totalcolorcircle">
+                <span class="labelstyle">Total Items</span>
+                <span class="labelstyle">300</span>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#cmbStates').change(function () {
+            $.ajax({
+                type: "post",
+                url: "/Home/GetCitiesByStateId",
+                data: { stateId: $('#cmbStates').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var district = "<select id='cmbCities'>";
+                    district = district + '<option value="">--Select--</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        district = district + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                    }
+                    district = district + '</select>';
+                    $('#cmbCities').html(district);
+                }
+            });
+        });
+    });
+</script> 
