@@ -1,0 +1,58 @@
+  <div class="row">
+                            <div class="col-md-6 ">
+                                <!--<label>Upload Image</label>-->
+                                <div class="uploag_image">
+                                    <a style="cursor: pointer;display: none;"></a>
+                                    <img id="imgprvw" alt="No Image Available" height="150" width="200"/>
+                           
+                                    <div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="up_deatails">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Choose File</span>
+                                        <asp:FileUpload ID="FileUpload1"  type="file" name="filUpload" runat="server" CssClass="upload" onchange="showimagepreview(this)" />
+                                    </div>
+                                </div>
+                            </div>
+  </div>
+    <script type="text/javascript">
+        function showimagepreview(input) {
+            if (input.files && input.files[0]) {
+                var filerdr = new FileReader();
+                filerdr.onload = function (e) {
+                    $('#imgprvw').attr('src', e.target.result);
+                }
+                filerdr.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+  
+  
+   if(FileUpload1.HasFile)
+        {
+            fileName = Guid.NewGuid().ToString();
+
+            string extension = Path.GetExtension(FileUpload1.PostedFile.FileName);
+
+           
+
+
+
+            FileUpload1.SaveAs(Server.MapPath("~//Image/" + fileName + extension));
+            fileName = "Image/" + fileName + extension;
+        }
+        else
+        {
+
+            fileName = "ImageBydefault" + "/" + "no_img_product.png";
+        }
+		
+		
+		
+		
+		
+		
