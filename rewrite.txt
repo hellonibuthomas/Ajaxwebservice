@@ -1,0 +1,54 @@
+  protected void Application_Start(object sender, EventArgs e)
+        {
+           
+            registerStart(RouteTable.Routes);
+           
+        }
+        void registerStart(RouteCollection routes)
+        {
+            routes.MapPageRoute("First", "AboutUs", "~/Pages/AboutUs.aspx");
+            
+            routes.MapPageRoute("Third", "PrivacyPolicy", "~/Pages/Privacy-Policy.aspx");
+            routes.MapPageRoute("Fourth", "TermsOfUse", "~/Pages/Terms-of-Use.aspx");
+            routes.MapPageRoute("Sixth", "Game", "~/Game/index.html");
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+           
+            Response.Cookies["StudentCookies"].Expires = DateTime.Now.AddDays(-1);
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Response.Cookies["StudentCookies"].Expires = DateTime.Now.AddDays(-1);
+            Response.Redirect("Error.html");
+        }
+
+        protected void Session_End(object sender, EventArgs e)
+        {
+            using (SpeakingbugEntities SpeakingbugEntities = new SpeakingbugEntities())
+            {
+                //SpeakingbugEntities SpeakingbugEntities = new Web.SpeakingbugEntities();
+                var nationalityList = SpeakingbugEntities.Database.ExecuteSqlCommand("UPDATE tblUserRegistration SET IsOnline='false' WHERE Id='" + Session["UserSession"] + "'");
+               
+
+
+            }
+            Response.Cookies["StudentCookies"].Expires = DateTime.Now.AddDays(-1);
+        }
+
+        protected void Application_End(object sender, EventArgs e)
+        {
+            Response.Cookies["StudentCookies"].Expires = DateTime.Now.AddDays(-1);
+        }
